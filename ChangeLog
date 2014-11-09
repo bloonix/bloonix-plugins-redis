@@ -1,0 +1,13 @@
+bloonix-plugins-redis (0.3) released at 2014-11-03
+
+    * Updated the license information.
+
+bloonix-plugins-redis (0.2) released at 2014-08-25
+
+    * Licence added and old releases deleted.
+    * Fixed "Use of uninitialized value ... line 78".
+    * Fixed data types in plugin-redis.
+
+bloonix-plugins-redis (0.1) released at 2014-05-26
+
+    * Initial release.

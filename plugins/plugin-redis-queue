@@ -1,0 +1,31 @@
+plugin {
+    id 49
+    plugin Redis.Queue.Check
+    command check-redis-queue
+    datatype statistic
+    category System,Caching,Redis
+    netaccess yes
+    prefer localhost
+    abstract Redis check queue
+    description Check the size of a redis queue.
+}
+
+statistic {
+    statkey size
+    alias Size
+    datatype bigint
+    description The size of a redis queue.
+}
+
+chart {
+    id 1
+    title Redis - queue size
+    options {
+        ylabel size
+        chart-type area
+        series {
+            name size
+            color \#005467
+        }
+    }
+}

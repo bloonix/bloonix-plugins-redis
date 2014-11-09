@@ -1,0 +1,13 @@
+Source: bloonix-plugins-redis
+Section: net
+Priority: extra
+Maintainer: Jonny Schulz <js@bloonix.de>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://www.bloonix.de/
+
+Package: bloonix-plugins-redis
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, bloonix-core
+Description: Bloonix Plugins Redis
+ bloonix-plugins-redis provides plugins to monitor redis.

@@ -1,0 +1,182 @@
+plugin {
+    id 48
+    plugin Redis.Check
+    command check-redis
+    datatype statistic
+    category System,Caching,Redis
+    netaccess yes
+    prefer localhost
+    abstract Redis check
+    description Redis statistics
+}
+
+statistic {
+    statkey connected_clients
+    alias Connected
+    datatype bigint
+    description The number of clients currently connected.
+}
+
+statistic {
+    statkey blocked_clients
+    alias Blocked
+    datatype bigint
+    description The number of clients pending on a blocking call (BLPOP, BRPOP, BRPOPLPUSH).
+}
+
+statistic {
+    statkey used_memory
+    alias Used memory
+    datatype bigint
+    units bytes
+    description The total number of bytes allocated by Redis using its allocator.
+}
+
+statistic {
+    statkey connections
+    alias Connections
+    datatype float
+    description The number of connections per second.
+}
+
+statistic {
+    statkey requests
+    alias Requests
+    datatype float
+    description The number of requests per second.
+}
+
+statistic {
+    statkey expired
+    alias Expired
+    datatype float
+    description The number of key expiration events per second.
+}
+
+statistic {
+    statkey evicted
+    alias Evicted
+    datatype float
+    description The number of evicted keys due to maxmemory limit per second.
+}
+
+statistic {
+    statkey hits
+    alias Hits
+    datatype float
+    description The number of successful lookup of keys in the main dictionary per second.
+}
+
+statistic {
+    statkey misses
+    alias Misses
+    datatype float
+    description The number of failed lookup of keys in the main dictionary per second.
+}
+
+statistic {
+    statkey hitratio
+    alias Hit ratio
+    datatype float
+    description The hit ratio (hits / total * 100).
+}
+
+statistic {
+    statkey missratio
+    alias Miss ratio
+    datatype float
+    description The miss ratio (misses / total * 100).
+}
+
+chart {
+    id 1
+    title Redis - connected and blocked clients
+    options {
+        ylabel count
+        chart-type area
+        series {
+            name connected_clients
+            color \#005467
+        }
+        series {
+            name blocked_clients
+            color \#ff7a0d
+            opposite true
+        }
+    }
+}
+
+chart {
+    id 2
+    title Redis - used memory
+    options {
+        ylabel bytes
+        units bytes
+        chart-type area
+        series {
+            name used_memory
+            color \#005467
+        }
+    }
+}
+
+chart {
+    id 3
+    title Redis - request and connections
+    options {
+        ylabel count/s
+        chart-type area
+        series {
+            name requests
+            color \#005467
+        }
+        series {
+            name connections
+            color \#ff7a0d
+            opposite true
+        }
+    }
+}
+
+chart {
+    id 4
+    title Redis - key statistics
+    options {
+        ylabel count/s
+        chart-type area
+        series {
+            name hits
+            color \#e9644a
+        }
+        series {
+            name misses
+            color \#ffb244
+        }
+        series {
+            name expired
+            color \#9a72ad
+        }
+        series {
+            name evicted
+            color \#005467
+        }
+    }
+}
+
+chart {
+    id 5
+    title Redis - hit and miss ratio
+    options {
+        ylabel ratio
+        chart-type area
+        series {
+            name hitratio
+            color \#005467
+        }
+        series {
+            name missratio
+            color \#ff7a0d
+            opposite true
+        }
+    }
+}
