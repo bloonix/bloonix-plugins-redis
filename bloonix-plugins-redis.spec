@@ -1,6 +1,6 @@
 Summary: Bloonix plugins for Redis.
 Name: bloonix-plugins-redis
-Version: 0.3
+Version: 0.4
 Release: 1%{dist}
 License: Commercial
 Group: Utilities/System
@@ -52,6 +52,8 @@ rm -rf %{buildroot}
 %doc %attr(0444, root, root) %{docdir}/LICENSE
 
 %changelog
+* Tue Mar 29 2016 Jonny Schulz <js@bloonix.de> - 0.4-1
+- Extra release because the gpg key of bloonix is updated.
 * Mon Nov 03 2014 Jonny Schulz <js@bloonix.de> - 0.3-1
 - Updated the license information.
 * Tue Aug 26 2014 Jonny Schulz <js@bloonix.de> - 0.2-1
